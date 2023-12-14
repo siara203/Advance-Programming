@@ -6,7 +6,7 @@ import org.example.interfaces.TeacherInterface;
 import java.util.List;
 
 public class TeacherService implements TeacherInterface{
-    public static TeacherService instance = null;
+    public static TeacherService instance ;
     public static  synchronized TeacherService getInstance(){
         if(instance ==null){
             instance = new TeacherService();
@@ -44,6 +44,5 @@ public class TeacherService implements TeacherInterface{
         return null;
     }
 
-    public void update(Teacher teacher) {
-    }
+
 }

@@ -1,5 +1,4 @@
 package org.example.entity;
-
 public class Schedule {
     private String scheduleID;
     private String courseID;
@@ -7,9 +6,7 @@ public class Schedule {
     private String teacherID;
 
     public Schedule(){
-
     }
-
     public Schedule(String scheduleID, String courseID, String classID, String teacherID) {
         this.scheduleID = scheduleID;
         this.courseID = courseID;

@@ -3,9 +3,22 @@ package org.example.service;
 import org.example.entity.Classroom;
 import org.example.interfaces.ClassroomInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClassroomService implements ClassroomInterface {
+
+    private List<ClassroomInterface> classActivities = new ArrayList<>();
+
+    public void addActivity(ClassroomInterface activity) {
+        classActivities.add(activity);
+    }
+
+    public void executeActivities() {
+        for (ClassroomInterface activity : classActivities) {
+            activity.execute();
+        }
+    }
     public static ClassroomService instance = null;
     public static synchronized ClassroomService getInstance()
     {
@@ -14,9 +27,12 @@ public class ClassroomService implements ClassroomInterface {
         }
         return instance;
     }
-
-
     public void deleteByTeacherID(String teacherID) {
+    }
+
+    @Override
+    public void execute() {
+
     }
 
     @Override

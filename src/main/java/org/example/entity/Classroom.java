@@ -1,21 +1,26 @@
 package org.example.entity;
 
+import org.example.interfaces.PersonComponent;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Classroom {
-
+public class Classroom implements PersonComponent {
     private String classID;
     private String className;
     private String teacherID;
     private int studentCount;
     private List<Student> students;
-
-    public Classroom(){
-
-    }
-    public Classroom(String classID, String className, String teacherID, int studentCount, List<Student> students) {
-        this.classID = classID;
+    private List<PersonComponent> members = new ArrayList<>();
+    public Classroom( String className){
         this.className = className;
+    }
+    public void addMember(PersonComponent member) {
+        members.add(member);
+    }
+    public Classroom(String classID, String teacherID, int studentCount, List<Student> students) {
+        this.classID = classID;
+
         this.teacherID = teacherID;
         this.studentCount = studentCount;
         this.students = students;
@@ -59,5 +64,13 @@ public class Classroom {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Classroom: " + className);
+        for (PersonComponent member : members) {
+            member.displayInfo();
+        }
     }
 }

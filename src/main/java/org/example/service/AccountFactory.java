@@ -9,7 +9,7 @@ import org.example.interfaces.NotifyInterface;
 public class AccountFactory {
     public static NotifyInterface createNotification(String type){
         if (type.equals("Student")) {
-            return new Student<>(1, "Son");
+            return new Student();
         }else if (type.equals("Teacher")) {
             return new Teacher();
         }else if(type.equals("Parent")){

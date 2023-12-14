@@ -3,15 +3,16 @@ package org.example.entity;
 import org.example.core.Person;
 import org.example.interfaces.NotifyInterface;
 
-import java.util.Date;
-
 public class Parent extends Person implements NotifyInterface {
     private String parentID;
     private String studentID;
 
-
     public Parent() {
+    }
 
+    @Override
+    public Person build() {
+        return null;
     }
 
     public Parent(String userID, String password, boolean loginStatus, String name, String address, String phoneNumber, String gender, String identifiCard, String parentID, String studentID) {
@@ -39,6 +40,5 @@ public class Parent extends Person implements NotifyInterface {
     @Override
     public void notification() {
         System.out.println("Parent notify");
-
     }
 }
